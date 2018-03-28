@@ -6,11 +6,10 @@ public class MusicPlayer : MonoBehaviour {
 
 	static MusicPlayer instance = null;
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (instance != null) {
 			// Removing duplicates of music player upon reload of main menu
-			Destroy(gameObject);
+			Destroy (gameObject);
 		} else {
 			instance = this;
 			GameObject.DontDestroyOnLoad(gameObject);

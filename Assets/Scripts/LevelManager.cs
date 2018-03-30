@@ -9,9 +9,14 @@ public class LevelManager : MonoBehaviour {
 		Application.LoadLevel(name);
 	}
 
-	public void QuitGame() {
+	public void QuitGame () {
 		Debug.Log("Quitting Game");
 		Application.Quit();
 	}
 
+	public void LoadNextLevel() {
+		Application.LoadLevel(Application.loadedLevel + 1);
+	}
+
 }
+

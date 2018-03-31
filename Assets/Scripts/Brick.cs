@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
-	public int maxHits;
-	private int timesHit;
+	public Sprite[] hitSprites;
 
+	private int timesHit;
 	private LevelManager levelManager;
 
 	// Use this for initialization
@@ -21,11 +21,27 @@ public class Brick : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D collision) {
+		bool isBreakable = (this.tag == "Breakable");
+		if (isBreakable) {
+			HandleHits ();
+		}
+	}
+
+	void HandleHits () {
 		timesHit++;
+		int maxHits = hitSprites.Length + 1;
 		if (timesHit >= maxHits) {
 			Destroy(gameObject);
+		} else {
+			LoadSprites();
 		}
 		//SimulateWin ();
+	}
+
+	void LoadSprites () {
+		int spriteIndex = timesHit - 1;
+		this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+
 	}
 
 	// TODO Remove this method once we actually win!

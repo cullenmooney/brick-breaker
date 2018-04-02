@@ -10,10 +10,13 @@ public class Ball : MonoBehaviour {
 
 	private Vector3 paddleToBallVector;
 
+	private AudioSource audioSource;
+
 	// Use this for initialization
 	void Start () {
 		paddle = GameObject.FindObjectOfType<Paddle>();
-		paddleToBallVector = this.transform.position - paddle.transform.position;	
+		paddleToBallVector = this.transform.position - paddle.transform.position;
+		audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +30,14 @@ public class Ball : MonoBehaviour {
 				gameStarted = true;
 				this.GetComponent<Rigidbody2D>().velocity = new Vector2 (2f, 10f);
 			}
+		}
+	}
+
+	void OnCollisionEnter2D (Collision2D collision) {
+		Vector2 tweak = new Vector2 (Random.Range(0f, .2f), Random.Range(0f, .2f));
+		if (gameStarted) {
+			audioSource.Play();
+			this.GetComponent<Rigidbody2D>().velocity += tweak;
 		}
 	}
 }

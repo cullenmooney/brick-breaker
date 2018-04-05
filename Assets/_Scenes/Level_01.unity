@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4483654203681210, guid: c492b13d45b8245eb8d099892230cef3, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1141562391536626, guid: c492b13d45b8245eb8d099892230cef3, type: 2}
       propertyPath: m_Name
@@ -404,7 +404,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4483654203681210, guid: c492b13d45b8245eb8d099892230cef3, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1141562391536626, guid: c492b13d45b8245eb8d099892230cef3, type: 2}
       propertyPath: m_Name
